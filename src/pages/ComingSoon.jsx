@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Instagram, Facebook, Phone, MapPin } from "lucide-react";
 
 const LOGO_URL = "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/4fa3237c0_WhatsAppImage2026-04-27at122434.jpg";
-const BG_URL = "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/0d5cf99dd_WhatsAppImage2026-04-27at1224352.jpg";
+const BG_URL = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/25be153bd_WhatsAppImage2026-04-27at1224361.jpg";
 
 // Target opening date
 const OPEN_DATE = new Date("2026-06-01T10:00:00");
