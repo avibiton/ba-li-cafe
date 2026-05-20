@@ -7,6 +7,8 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
 import ComingSoon from './pages/ComingSoon';
+import Menu from './pages/Menu';
+import AdminMenu from './pages/AdminMenu';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -37,6 +39,8 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route path="/" element={<ComingSoon />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/menu" element={<Menu />} />
+      <Route path="/admin/menu" element={<AdminMenu />} />
       {/* Add your page Route elements here */}
       <Route path="*" element={<PageNotFound />} />
     </Routes>
