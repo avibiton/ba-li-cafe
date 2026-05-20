@@ -4,6 +4,8 @@ import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ImageOff } from "lucide-react";
 
+const BG_URL = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/25be153bd_WhatsAppImage2026-04-27at1224361.jpg";
+
 const CATEGORIES = [
 { id: "bites", label: "BA-LI Bites" },
 { id: "breakfast", label: "BA-LI Breakfast" },
@@ -232,15 +234,17 @@ export default function MenuPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="text-background py-16 px-5 md:px-8 bg-[hsl(var(--primary))]">
-        <div className="max-w-7xl mx-auto">
-          <Link to="/home" className="inline-flex items-center gap-2 text-background/60 hover:text-background font-body text-sm mb-8 transition-colors">
+      <div className="relative py-24 px-5 md:px-8 overflow-hidden">
+        <img src={BG_URL} alt="BA-LI Cafe" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        <div className="relative max-w-7xl mx-auto">
+          <Link to="/home" className="inline-flex items-center gap-2 text-white/70 hover:text-white font-body text-sm mb-8 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-background mb-3">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">
             BA-LI Menu
           </h1>
-          <p className="font-body text-background/60 text-sm">
+          <p className="font-body text-white/60 text-sm">
             Dairy Restaurant · Chalav Yisrael · Hollywood, Florida
           </p>
         </div>
