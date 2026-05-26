@@ -9,6 +9,8 @@ const categories = [
   { id: "salat", label: "Salads" },
   { id: "pasta", label: "Pasta" },
   { id: "dinner", label: "Dinner" },
+  { id: "sushi_rolls", label: "Sushi Rolls" },
+  { id: "nigiri", label: "Nigiri" },
   { id: "juice", label: "Juices" },
   { id: "smoothie", label: "Smoothies" },
   { id: "hot_drinks", label: "Hot Drinks" },
@@ -154,7 +156,21 @@ const menuItems = {
     { name: "Halva Lovers", desc: "Scoop of vanilla ice cream with halva, silan and pecans", price: "$15.95" },
     { name: "Affogato", desc: "Scoop of creamy vanilla ice cream with a shot of espresso", price: "$8.95" },
   ],
-};
+  sushi_rolls: [
+    { name: "California Roll", desc: "Krab mix, avocado, cucumber", price: "$11" },
+    { name: "Tuna Roll", desc: "Fresh tuna and cucumber", price: "$10" },
+    { name: "Spicy Tuna Roll", desc: "Spicy tuna mix and cucumber", price: "$12" },
+    { name: "Salmon Roll", desc: "Fresh salmon and cucumber", price: "$10" },
+    { name: "Avocado Roll", desc: "Fresh avocado", price: "$8" },
+    { name: "Crunchy Tempura Roll", desc: "Tempura vegetables with crispy flakes and spicy mayo", price: "$14" },
+    { name: "Bali Crunch Roll", desc: "Spicy tuna, avocado, tempura crunch and house sweet soy glaze", price: "$16" },
+  ],
+  nigiri: [
+    { name: "Tuna Nigiri (2 pcs)", price: "$8" },
+    { name: "Salmon Nigiri (2 pcs)", price: "$8" },
+    { name: "Avocado Nigiri (2 pcs)", price: "$7" },
+  ],
+  };
 
 export default function MenuSection() {
   const [active, setActive] = useState("bites");

@@ -276,9 +276,7 @@ export default function MenuPage() {
         <img src={BG_URL} alt="BA-LI Cafe" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         <div className="relative max-w-7xl mx-auto">
-          <Link to="/home" className="inline-flex items-center gap-2 text-white/70 hover:text-white font-body text-sm mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
-          </Link>
+
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">
             BA-LI Menu
           </h1>
