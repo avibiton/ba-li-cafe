@@ -14,15 +14,15 @@ export default function Footer() {
               <img
                 src={LOGO_URL}
                 alt="Bali Cafe Logo"
-                className="h-10 w-10 rounded-full object-cover"
-              />
+                className="h-10 w-10 rounded-full object-cover" />
+              
               <span className="font-heading text-lg font-semibold text-background">
                 Bali Cafe
               </span>
             </div>
-            <p className="font-body text-sm text-background/60 leading-relaxed">
-              A kosher Israeli restaurant in Davie, Florida. 
-              Chalav Yisrael dairy cuisine that tastes just like home.
+            <p className="font-body text-sm text-background/60 leading-relaxed">A kosher Israeli restaurant in Hollywood, Florida. Chalav Yisrael dairy cuisine that tastes just like home.
+
+
             </p>
           </div>
 
@@ -32,15 +32,15 @@ export default function Footer() {
               Quick Links
             </h4>
             <div className="space-y-2">
-              {["About", "Menu", "Gallery", "Visit Us", "Contact"].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(" ", "")}`}
-                  className="block font-body text-sm text-background/60 hover:text-background transition-colors"
-                >
+              {["About", "Menu", "Gallery", "Visit Us", "Contact"].map((link) =>
+              <a
+                key={link}
+                href={`#${link.toLowerCase().replace(" ", "")}`}
+                className="block font-body text-sm text-background/60 hover:text-background transition-colors">
+                
                   {link}
                 </a>
-              ))}
+              )}
             </div>
           </div>
 
@@ -66,22 +66,22 @@ export default function Footer() {
                 href="https://instagram.com/balicafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors">
+                
                 <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="https://facebook.com/balicafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors">
+                
                 <Facebook className="w-4 h-4" />
               </a>
               <a
                 href="mailto:info@balicafe.com"
-                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors"
-              >
+                className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors">
+                
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -97,6 +97,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
