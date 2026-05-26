@@ -14,6 +14,10 @@ const CATEGORIES = [
 { id: "salat", label: "BA-LI Salat" },
 { id: "pasta", label: "BA-LI Pasta" },
 { id: "dinner", label: "BA-LI Dinner" },
+{ id: "sushi_rolls", label: "Sushi Rolls" },
+{ id: "nigiri", label: "Nigiri" },
+{ id: "tempura", label: "Tempura" },
+{ id: "sushi_sides", label: "Sushi Sides & Sauces" },
 { id: "side", label: "BA-LI Side" },
 { id: "juice", label: "BA-LI Juice" },
 { id: "smoothie", label: "BA-LI Smoothie" },
@@ -176,9 +180,41 @@ const STATIC_ITEMS = {
   { name: "Apple Pie", description: "Served with vanilla ice cream (contains cinnamon)", price: "$12.95" },
   { name: "After Dinner-tini", description: "3 scoops of your choice of ice cream in an oversized martini glass and lots of whipped cream", price: "$14.95" },
   { name: "Halva Lovers", description: "Scoop of vanilla ice cream with halva, silan and pecans", price: "$15.95" },
-  { name: "Affogato", description: "Scoop of creamy vanilla ice cream with a shot of espresso", price: "$8.95" }]
+  { name: "Affogato", description: "Scoop of creamy vanilla ice cream with a shot of espresso", price: "$8.95" }],
 
-};
+  sushi_rolls: [
+  { name: "California Roll", description: "Krab mix, avocado, cucumber", price: "$11" },
+  { name: "Tuna Roll", description: "Fresh tuna and cucumber", price: "$10" },
+  { name: "Spicy Tuna Roll", description: "Spicy tuna mix and cucumber", price: "$12" },
+  { name: "Salmon Roll", description: "Fresh salmon and cucumber", price: "$10" },
+  { name: "Avocado Roll", description: "Fresh avocado", price: "$8" },
+  { name: "Cucumber Roll", description: "Cucumber and sesame", price: "$8" },
+  { name: "Vegetable Roll", description: "Avocado, cucumber, carrots and asparagus", price: "$10" },
+  { name: "Sweet Potato Tempura Roll", description: "Crispy tempura sweet potato with house sweet soy glaze", price: "$12" },
+  { name: "Crunchy Tempura Roll", description: "Tempura vegetables with crispy flakes and spicy mayo", price: "$14" },
+  { name: "Bali Crunch Roll", description: "Spicy tuna, avocado, tempura crunch and house sweet soy glaze", price: "$16" },
+  { name: "California Crunch Roll", description: "California roll topped with tempura crunch", price: "$15" },
+  { name: "Spicy Salmon Tempura Roll", description: "Salmon, avocado and tempura crunch", price: "$16" }],
+
+  nigiri: [
+  { name: "Tuna Nigiri (2 pcs)", price: "$8" },
+  { name: "Salmon Nigiri (2 pcs)", price: "$8" },
+  { name: "Avocado Nigiri (2 pcs)", price: "$7" }],
+
+  tempura: [
+  { name: "Vegetable Tempura", description: "Lightly battered seasonal vegetables", price: "$12" },
+  { name: "Sweet Potato Tempura", price: "$11" },
+  { name: "Tempura Avocado Bites", price: "$12" }],
+
+  sushi_sides: [
+  { name: "Miso Soup", price: "$5" },
+  { name: "Seaweed Salad", price: "$7" },
+  { name: "Edamame", price: "$7" },
+  { name: "Spicy Mayo", price: "$1" },
+  { name: "House Sweet Soy Glaze", price: "$1" },
+  { name: "Extra Ginger / Wasabi", price: "$1" }]
+
+  };
 
 function MenuItemCard({ item, dbItem }) {
   const imageUrl = dbItem?.image_url;
