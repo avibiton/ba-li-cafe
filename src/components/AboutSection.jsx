@@ -44,41 +44,38 @@ export default function AboutSection() {
               Our Story
             </p>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-6">
-              Where Island Spirit{" "}
-              <span className="italic text-primary">Meets</span> Modern Flavor
+              Israeli Food That{" "}
+              <span className="italic text-primary">Tastes</span> Like Home
             </h2>
             <div className="space-y-5 font-body text-muted-foreground leading-relaxed">
               <p>
-                Bali Cafe was born from a love of Bali's vibrant culture — its 
-                warmth, its flavors, and its effortless sense of community. We 
-                brought that spirit to Hollywood, Florida, creating a space 
-                where every visit feels like a tropical escape.
+                Bali Cafe is a kosher Israeli restaurant in the heart of Davie, Florida. 
+                We bring the flavors of home to your table — shakshuka, sabich, fresh salads, 
+                and everything your savta used to make, served with love.
               </p>
               <p>
-                Our menu celebrates fresh, dairy-based cuisine alongside 
-                artisanal coffee and decadent desserts. Every dish is crafted 
-                with quality ingredients and served in an atmosphere that's 
-                equal parts cozy and Instagram-worthy.
+                Our kitchen is 100% Chalav Yisrael and strictly kosher dairy. Every dish 
+                is made from scratch with fresh ingredients, because that's the only way 
+                we know how to cook.
               </p>
               <p>
-                Whether you're stopping by for a morning latte, a leisurely 
-                brunch, or an evening fireside gathering — you'll find 
-                something special waiting for you here.
+                Whether you're craving a classic Israeli breakfast, a hearty pasta, or a 
+                fresh juice — Bali Cafe is your home away from home.
               </p>
             </div>
 
             <div className="flex gap-12 mt-10">
               <div>
-                <p className="font-heading text-3xl font-bold text-primary">Fresh</p>
-                <p className="font-body text-sm text-muted-foreground mt-1">Ingredients Daily</p>
-              </div>
-              <div>
-                <p className="font-heading text-3xl font-bold text-primary">Cozy</p>
-                <p className="font-body text-sm text-muted-foreground mt-1">Tropical Atmosphere</p>
-              </div>
-              <div>
                 <p className="font-heading text-3xl font-bold text-primary">Kosher</p>
-                <p className="font-body text-sm text-muted-foreground mt-1">Dairy Certified</p>
+                <p className="font-body text-sm text-muted-foreground mt-1">Chalav Yisrael</p>
+              </div>
+              <div>
+                <p className="font-heading text-3xl font-bold text-primary">Fresh</p>
+                <p className="font-body text-sm text-muted-foreground mt-1">Made from Scratch</p>
+              </div>
+              <div>
+                <p className="font-heading text-3xl font-bold text-primary">Israeli</p>
+                <p className="font-body text-sm text-muted-foreground mt-1">Tastes Like Home</p>
               </div>
             </div>
           </motion.div>

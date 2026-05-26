@@ -21,8 +21,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="font-body text-sm text-background/60 leading-relaxed">
-              A taste of Bali in Hollywood, Florida. Fresh dairy cuisine, 
-              artisanal coffee, and tropical vibes.
+              A kosher Israeli restaurant in Davie, Florida. 
+              Chalav Yisrael dairy cuisine that tastes just like home.
             </p>
           </div>
 
@@ -93,7 +93,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Bali Cafe. All rights reserved.
           </p>
           <p className="font-body text-xs text-background/40">
-            Dairy Restaurant · Chalav Yisrael · Kemach Yashan
+            4433 Stirling Rd, Davie, FL 33314 · Kosher Dairy · Chalav Yisrael
           </p>
         </div>
       </div>

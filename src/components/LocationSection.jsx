@@ -22,7 +22,7 @@ export default function LocationSection() {
             Find Us
           </p>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-semibold">
-            Visit <span className="italic">Bali Cafe</span>
+            Come <span className="italic">Visit Us</span>
           </h2>
         </motion.div>
 
@@ -35,7 +35,7 @@ export default function LocationSection() {
             className="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] md:aspect-auto md:min-h-[400px]"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.6!2d-80.14!3d26.01!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDAwJzM2LjAiTiA4MMKwMDgnMjQuMCJX!5e0!3m2!1sen!2sus!4v1600000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.5!2d-80.2!3d26.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a2f3b3b3b3b3%3A0x0!2s4433+Stirling+Rd%2C+Davie%2C+FL+33314!5e0!3m2!1sen!2sus!4v1600000000000"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -61,10 +61,10 @@ export default function LocationSection() {
               <div>
                 <h3 className="font-heading text-xl font-semibold mb-1">Address</h3>
                 <p className="font-body text-muted-foreground">
-                  Hollywood, Florida
+                  4433 Stirling Rd, Davie, FL 33314
                 </p>
                 <a
-                  href="https://maps.google.com/?q=Bali+Cafe+Hollywood+Florida"
+                  href="https://maps.google.com/?q=4433+Stirling+Rd+Davie+FL+33314"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-body text-sm text-primary hover:underline mt-1 inline-block"

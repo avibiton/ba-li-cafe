@@ -66,7 +66,7 @@ export default function ContactSection() {
                 <span className="font-body text-sm font-medium">Call Now</span>
               </a>
               <a
-                href="https://maps.google.com/?q=Bali+Cafe+Hollywood+Florida"
+                href="https://maps.google.com/?q=4433+Stirling+Rd+Davie+FL+33314"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card hover:shadow-md transition-shadow text-center"
