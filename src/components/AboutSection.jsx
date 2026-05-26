@@ -49,7 +49,7 @@ export default function AboutSection() {
             </h2>
             <div className="space-y-5 font-body text-muted-foreground leading-relaxed">
               <p>
-                Bali Cafe is a kosher Israeli restaurant in the heart of Davie, Florida. 
+                Bali Cafe is a kosher Israeli restaurant in the heart of Hollywood, Florida. 
                 We bring the flavors of home to your table — shakshuka, sabich, fresh salads, 
                 and everything your savta used to make, served with love.
               </p>

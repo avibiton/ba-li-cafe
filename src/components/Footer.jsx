@@ -93,7 +93,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Bali Cafe. All rights reserved.
           </p>
           <p className="font-body text-xs text-background/40">
-            4433 Stirling Rd, Davie, FL 33314 · Kosher Dairy · Chalav Yisrael
+            4433 Stirling Rd, Hollywood, FL 33314 · Kosher Dairy · Chalav Yisrael
           </p>
         </div>
       </div>

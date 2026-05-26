@@ -61,7 +61,7 @@ export default function LocationSection() {
               <div>
                 <h3 className="font-heading text-xl font-semibold mb-1">Address</h3>
                 <p className="font-body text-muted-foreground">
-                  4433 Stirling Rd, Davie, FL 33314
+                  4433 Stirling Rd, Hollywood, FL 33314
                 </p>
                 <a
                   href="https://maps.google.com/?q=4433+Stirling+Rd+Davie+FL+33314"

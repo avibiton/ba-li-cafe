@@ -106,7 +106,7 @@ export default function ComingSoon() {
           transition={{ delay: 0.2 }}
           className="font-body text-xs tracking-[0.35em] uppercase text-white/60 mb-4"
         >
-          Davie · Florida
+          Hollywood · Florida
         </motion.p>
 
         {/* Title */}
@@ -184,7 +184,7 @@ export default function ComingSoon() {
 
         {/* Location pill */}
         <motion.a
-          href="https://maps.google.com/?q=4433+Stirling+Rd+Davie+FL+33314"
+          href="https://maps.google.com/?q=4433+Stirling+Rd+Hollywood+FL+33314"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0 }}
@@ -193,7 +193,7 @@ export default function ComingSoon() {
           className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2.5 text-white/70 font-body text-sm hover:text-white hover:border-white/40 transition-all mb-10"
         >
           <MapPin className="w-4 h-4 text-primary" />
-          4433 Stirling Rd, Davie, FL 33314
+          4433 Stirling Rd, Hollywood, FL 33314
         </motion.a>
 
         {/* Social + Phone */}
@@ -236,7 +236,7 @@ export default function ComingSoon() {
         transition={{ delay: 1.2 }}
         className="relative z-10 mt-12 font-body text-xs text-white/30 tracking-widest uppercase"
       >
-        Kosher Israeli Restaurant · Chalav Yisrael · Davie, Florida
+        Kosher Israeli Restaurant · Chalav Yisrael · Hollywood, Florida
       </motion.p>
     </div>
   );
