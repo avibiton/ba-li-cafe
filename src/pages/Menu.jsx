@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ImageOff } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const BG_URL = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/25be153bd_WhatsAppImage2026-04-27at1224361.jpg";
 
@@ -233,6 +234,7 @@ export default function MenuPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       {/* Header */}
       <div className="relative py-24 px-5 md:px-8 overflow-hidden">
         <img src={BG_URL} alt="BA-LI Cafe" className="absolute inset-0 w-full h-full object-cover" />
