@@ -34,7 +34,7 @@ export default function Navbar() {
       
       <div className="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <Link to="/home" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_URL}
             alt="Bali Cafe Logo"
