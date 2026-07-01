@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { MapPin, Clock, Car } from "lucide-react";
+import { trackEvent, EVENTS } from "@/lib/analytics";
 
 const hours = [
   { day: "Sunday – Thursday", time: "8:00 AM – 11:00 PM" },
@@ -35,7 +36,7 @@ export default function LocationSection() {
             className="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] md:aspect-auto md:min-h-[400px]"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.5!2d-80.2!3d26.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a2f3b3b3b3b3%3A0x0!2s4433+Stirling+Rd%2C+Davie%2C+FL+33314!5e0!3m2!1sen!2sus!4v1600000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.5!2d-80.2!3d26.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a2f3b3b3b3b3%3A0x0!2s4433+Stirling+Rd%2C+Hollywood%2C+FL+33314!5e0!3m2!1sen!2sus!4v1600000000000"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -64,9 +65,10 @@ export default function LocationSection() {
                   4433 Stirling Rd, Hollywood, FL 33314
                 </p>
                 <a
-                  href="https://maps.google.com/?q=4433+Stirling+Rd+Davie+FL+33314"
+                  href="https://maps.google.com/?q=4433+Stirling+Rd+Hollywood+FL+33314"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent(EVENTS.DIRECTIONS_CLICK)}
                   className="font-body text-sm text-primary hover:underline mt-1 inline-block"
                 >
                   Get Directions →

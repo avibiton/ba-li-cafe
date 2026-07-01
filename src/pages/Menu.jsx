@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
-import { Link } from "react-router-dom";
-import { ArrowLeft, ImageOff } from "lucide-react";
+import { ImageOff } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { useSEO } from "@/lib/seo";
+import { trackEvent, EVENTS } from "@/lib/analytics";
 
 const BG_URL = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/25be153bd_WhatsAppImage2026-04-27at1224361.jpg";
 
@@ -255,8 +256,15 @@ export default function MenuPage() {
   const [active, setActive] = useState("bites");
   const [dbItems, setDbItems] = useState([]);
 
+  useSEO({
+    title: "Menu | Chalav Yisrael Kosher Dairy Restaurant, Hollywood FL",
+    description:
+      "View the BA-LI Cafe menu — kosher dairy Israeli cuisine in Hollywood, FL. Breakfast, salads, paninis, pasta, sushi, juices, smoothies, coffee & desserts. Chalav Yisrael.",
+  });
+
   useEffect(() => {
     base44.entities.MenuItem.list().then(setDbItems).catch(() => {});
+    trackEvent(EVENTS.MENU_VIEW);
   }, []);
 
   const staticItems = STATIC_ITEMS[active] || [];

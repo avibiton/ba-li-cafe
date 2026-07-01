@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Instagram, Facebook, Mail } from "lucide-react";
 
 const LOGO_URL = "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/4fa3237c0_WhatsAppImage2026-04-27at122434.jpg";
@@ -32,14 +33,19 @@ export default function Footer() {
               Quick Links
             </h4>
             <div className="space-y-2">
-              {["About", "Menu", "Gallery", "Visit Us", "Contact"].map((link) =>
-              <a
-                key={link}
-                href={`#${link.toLowerCase().replace(" ", "")}`}
+              {[
+                { label: "About", path: "/about" },
+                { label: "Menu", path: "/menu" },
+                { label: "Gallery", path: "/gallery" },
+                { label: "Find Us", path: "/find-us" },
+                { label: "Order Online", path: "/online-ordering" },
+              ].map((link) =>
+              <Link
+                key={link.path}
+                to={link.path}
                 className="block font-body text-sm text-background/60 hover:text-background transition-colors">
-                
-                  {link}
-                </a>
+                  {link.label}
+                </Link>
               )}
             </div>
           </div>

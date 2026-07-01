@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { trackEvent, EVENTS } from "@/lib/analytics";
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -14,6 +15,7 @@ export default function ContactSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSending(true);
+    trackEvent(EVENTS.CONTACT_FORM_SUBMIT);
     // Simulate submission
     setTimeout(() => {
       setSending(false);
@@ -58,6 +60,7 @@ export default function ContactSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
               <a
                 href="tel:+19541234567"
+                onClick={() => trackEvent(EVENTS.PHONE_TAP)}
                 className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card hover:shadow-md transition-shadow text-center"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -66,9 +69,10 @@ export default function ContactSection() {
                 <span className="font-body text-sm font-medium">Call Now</span>
               </a>
               <a
-                href="https://maps.google.com/?q=4433+Stirling+Rd+Davie+FL+33314"
+                href="https://maps.google.com/?q=4433+Stirling+Rd+Hollywood+FL+33314"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent(EVENTS.DIRECTIONS_CLICK)}
                 className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card hover:shadow-md transition-shadow text-center"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">

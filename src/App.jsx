@@ -1,19 +1,18 @@
 import { Toaster } from "@/components/ui/toaster"
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import Home from './pages/Home';
-import ComingSoon from './pages/ComingSoon';
 import Menu from './pages/Menu';
 import AdminMenu from './pages/AdminMenu';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
-import VisitUs from './pages/VisitUs';
-import Contact from './pages/Contact';
+import FindUs from './pages/FindUs';
 import OnlineOrdering from './pages/OnlineOrdering';
+import ProtectedRoute from '@/components/ProtectedRoute';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -46,10 +45,14 @@ const AuthenticatedApp = () => {
       <Route path="/menu" element={<Menu />} />
       <Route path="/about" element={<About />} />
       <Route path="/gallery" element={<Gallery />} />
-      <Route path="/visit-us" element={<VisitUs />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/find-us" element={<FindUs />} />
+      <Route path="/visit-us" element={<Navigate to="/find-us" replace />} />
+      <Route path="/contact" element={<Navigate to="/find-us" replace />} />
+      <Route path="/coming-soon" element={<Navigate to="/" replace />} />
       <Route path="/online-ordering" element={<OnlineOrdering />} />
-      <Route path="/admin/menu" element={<AdminMenu />} />
+      <Route element={<ProtectedRoute unauthenticatedElement={<Navigate to="/" replace />} />}>
+        <Route path="/admin/menu" element={<AdminMenu />} />
+      </Route>
       {/* Add your page Route elements here */}
       <Route path="*" element={<PageNotFound />} />
     </Routes>

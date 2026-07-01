@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import { trackEvent, EVENTS } from "@/lib/analytics";
 
 const HERO_IMG = "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/0d5cf99dd_WhatsAppImage2026-04-27at1224352.jpg";
 
@@ -43,12 +44,14 @@ export default function HeroSection() {
         >
           <a
             href="#menu"
+            onClick={() => trackEvent(EVENTS.MENU_VIEW)}
             className="bg-white text-foreground px-8 py-3.5 rounded-full font-body font-medium text-sm tracking-wide hover:bg-white/90 transition-colors"
           >
             View Menu
           </a>
           <a
             href="#location"
+            onClick={() => trackEvent(EVENTS.DIRECTIONS_CLICK)}
             className="border border-white/50 text-white px-8 py-3.5 rounded-full font-body font-medium text-sm tracking-wide hover:bg-white/10 transition-colors"
           >
             Visit Us

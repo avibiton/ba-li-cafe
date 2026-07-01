@@ -3,8 +3,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { ShoppingBag } from "lucide-react";
+import { useSEO } from "@/lib/seo";
+import { trackEvent, EVENTS } from "@/lib/analytics";
 
 export default function OnlineOrdering() {
+  useSEO({
+    title: "Order Online | BA-LI Cafe — Hollywood, FL Kosher Dairy Restaurant",
+    description:
+      "Order online from BA-LI Cafe — kosher dairy restaurant in Hollywood, FL. Call (954) 123-4567 to place your takeout order. Israeli breakfast, salads, pasta, sushi & more.",
+  });
   return (
     <div className="min-h-screen font-body flex flex-col">
       <Navbar />
@@ -25,11 +32,12 @@ export default function OnlineOrdering() {
             Online Ordering
           </h1>
           <p className="font-body text-muted-foreground leading-relaxed mb-8">
-            We're working on making it easy to order your favorite Israeli dishes online. 
+            We're working on making it easy to order your favorite Israeli dishes online.
             In the meantime, give us a call and we'll take care of you.
           </p>
           <a
             href="tel:+19541234567"
+            onClick={() => trackEvent(EVENTS.PHONE_TAP)}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-body font-medium hover:bg-primary/90 transition-colors"
           >
             Call to Order
