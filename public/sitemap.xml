@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://balicafe.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://balicafe.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://balicafe.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://balicafe.com/find-us</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://balicafe.com/gallery</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://balicafe.com/online-ordering</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ba-licafe.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ba-licafe.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ba-licafe.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ba-licafe.com/find-us</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ba-licafe.com/gallery</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ba-licafe.com/online-ordering</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
