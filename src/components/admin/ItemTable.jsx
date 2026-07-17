@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { Plus, Pencil, Trash2, ImageOff, ChevronUp, ChevronDown } from "lucide-react";
+import { Plus, Pencil, Trash2, ImageOff, ChevronUp, ChevronDown, Search } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 import ItemEditDialog from "./ItemEditDialog";
 
 export default function ItemTable({ items, categoryId, categoryLabel, onSaved }) {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
+  const [search, setSearch] = useState("");
 
   const sorted = [...items].sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
+  const filtered = search.trim()
+    ? sorted.filter((i) => i.name.toLowerCase().includes(search.trim().toLowerCase()))
+    : sorted;
   const photoCount = sorted.filter((i) => i.image_url).length;
 
   const handleAdd = () => {
@@ -53,8 +57,19 @@ export default function ItemTable({ items, categoryId, categoryLabel, onSaved })
         </button>
       </div>
 
+      <div className="relative mb-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search items in this category..."
+          className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring/30"
+        />
+      </div>
+
       <div className="space-y-3">
-        {sorted.map((item, idx) => (
+        {filtered.map((item, idx) => (
           <div key={item.id} className="bg-card rounded-xl border border-border p-4 flex gap-4 items-start">
             <div className="w-20 h-20 rounded-lg bg-muted overflow-hidden flex items-center justify-center border border-border flex-shrink-0">
               {item.image_url ? (
@@ -85,7 +100,7 @@ export default function ItemTable({ items, categoryId, categoryLabel, onSaved })
                 <button onClick={() => handleReorder(item, "up")} disabled={idx === 0} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
                   <ChevronUp className="w-4 h-4 text-muted-foreground" />
                 </button>
-                <button onClick={() => handleReorder(item, "down")} disabled={idx === sorted.length - 1} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
+                <button onClick={() => handleReorder(item, "down")} disabled={idx === filtered.length - 1} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
                   <ChevronDown className="w-4 h-4 text-muted-foreground" />
                 </button>
               </div>
