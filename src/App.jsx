@@ -51,7 +51,7 @@ const AuthenticatedApp = () => {
       <Route path="/coming-soon" element={<Navigate to="/" replace />} />
       <Route path="/online-ordering" element={<OnlineOrdering />} />
       <Route path="/admin" element={<Navigate to="/admin/menu" replace />} />
-      <Route element={<ProtectedRoute />}>
+      <Route element={<ProtectedRoute requireAdmin />}>
         <Route path="/admin/menu" element={<AdminMenu />} />
       </Route>
       {/* Add your page Route elements here */}

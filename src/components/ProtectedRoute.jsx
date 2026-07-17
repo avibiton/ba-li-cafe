@@ -9,8 +9,8 @@ const DefaultFallback = () => (
   </div>
 );
 
-export default function ProtectedRoute({ fallback = <DefaultFallback /> }) {
-  const { isAuthenticated, isLoadingAuth, authChecked, authError, checkUserAuth, navigateToLogin } = useAuth();
+export default function ProtectedRoute({ fallback = <DefaultFallback />, requireAdmin = false }) {
+  const { user, isAuthenticated, isLoadingAuth, authChecked, authError, checkUserAuth, navigateToLogin } = useAuth();
 
   useEffect(() => {
     if (!authChecked && !isLoadingAuth) {
@@ -34,6 +34,10 @@ export default function ProtectedRoute({ fallback = <DefaultFallback /> }) {
 
   if (!isAuthenticated) {
     return fallback;
+  }
+
+  if (requireAdmin && user?.role !== 'admin') {
+    return <UserNotRegisteredError />;
   }
 
   return <Outlet />;
