@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { ArrowLeft, Loader2 } from "lucide-react";
+import { ArrowLeft, Loader2, LogOut } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/lib/AuthContext";
 import CategorySidebar from "@/components/admin/CategorySidebar";
 import ItemTable from "@/components/admin/ItemTable";
 
@@ -10,6 +11,7 @@ export default function AdminMenu() {
   const [items, setItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { logout } = useAuth();
 
   const load = async (selectId) => {
     const cats = await base44.entities.MenuCategory.list();
@@ -39,8 +41,19 @@ export default function AdminMenu() {
           <Link to="/" className="inline-flex items-center gap-2 text-background/60 hover:text-background text-sm font-body mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Site
           </Link>
-          <h1 className="font-heading text-3xl font-bold text-background">Menu Admin</h1>
-          <p className="font-body text-background/60 text-sm mt-1">Manage categories, items, prices & photos</p>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h1 className="font-heading text-3xl font-bold text-background">Menu Admin</h1>
+              <p className="font-body text-background/60 text-sm mt-1">Manage categories, items, prices & photos</p>
+            </div>
+            <button
+              onClick={() => logout()}
+              className="inline-flex items-center gap-2 border border-background/20 text-background px-4 py-2 rounded-full text-sm font-body hover:bg-background/10 transition-colors"
+            >
+              <LogOut className="w-4 h-4" />
+              Logout
+            </button>
+          </div>
         </div>
       </div>
 
