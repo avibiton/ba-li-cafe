@@ -4,27 +4,7 @@
   "properties": {
     "category": {
       "type": "string",
-      "enum": [
-        "bites",
-        "breakfast",
-        "toast",
-        "salat",
-        "pasta",
-        "dinner",
-        "sushi_rolls",
-        "nigiri",
-        "tempura",
-        "sushi_sides",
-        "side",
-        "juice",
-        "smoothie",
-        "hot_drinks",
-        "cold_drinks",
-        "milkshakes",
-        "kids",
-        "sweet"
-      ],
-      "description": "Menu category"
+      "description": "Menu category ID (matches MenuCategory.category_id)"
     },
     "name": {
       "type": "string",
