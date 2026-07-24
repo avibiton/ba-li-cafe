@@ -7,6 +7,7 @@ import MenuSection from "../components/MenuSection";
 import GallerySection from "../components/GallerySection";
 import TestimonialSection from "../components/TestimonialSection";
 import FAQSection from "../components/FAQSection";
+import InstagramFeed from "../components/InstagramFeed";
 import LocationSection from "../components/LocationSection";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
       <TrustSection />
       <MenuSection />
       <GallerySection />
+      <InstagramFeed />
       <TestimonialSection />
       <FAQSection />
       <LocationSection />
