@@ -109,6 +109,18 @@ export default function TestimonialSection() {
             Reviews are loading. Please check back shortly.
           </p>
         )}
+
+        <div className="text-center mt-14">
+          <a
+            href="https://share.google/ItokAjfDm0MGxHdQA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-foreground text-background px-8 py-3.5 rounded-full font-body text-sm font-medium hover:bg-foreground/90 transition-colors"
+          >
+            <GoogleG className="w-4 h-4" />
+            Write a Review on Google
+          </a>
+        </div>
       </div>
     </section>
   );
