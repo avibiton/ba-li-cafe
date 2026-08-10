@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Loader2, ImageOff } from "lucide-react";
 import { base44 } from "@/api/base44Client";
+import ImageLightbox from "@/components/ImageLightbox";
 
 export default function MenuSection() {
   const [active, setActive] = useState(null);
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [lightbox, setLightbox] = useState({ open: false, image: null, alt: null });
 
   useEffect(() => {
     const load = async () => {
@@ -90,7 +92,8 @@ export default function MenuSection() {
                         <img
                           src={item.image_url}
                           alt={item.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          onClick={() => setLightbox({ open: true, image: item.image_url, alt: item.name })}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-zoom-in"
                         />
                       ) : (
                         <div className="flex flex-col items-center gap-1.5 text-muted-foreground/40">
@@ -130,6 +133,12 @@ export default function MenuSection() {
           </Link>
         </div>
       </div>
+      <ImageLightbox
+        image={lightbox.image}
+        alt={lightbox.alt}
+        open={lightbox.open}
+        onClose={() => setLightbox({ ...lightbox, open: false })}
+      />
     </section>
   );
 }

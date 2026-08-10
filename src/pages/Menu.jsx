@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { ImageOff, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import ImageLightbox from "@/components/ImageLightbox";
 import { useSEO } from "@/lib/seo";
 import { trackEvent, EVENTS } from "@/lib/analytics";
 
 const BG_URL = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/25be153bd_WhatsAppImage2026-04-27at1224361.jpg";
 
-function MenuItemCard({ item }) {
+function MenuItemCard({ item, onOpen }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
@@ -17,7 +18,12 @@ function MenuItemCard({ item }) {
     >
       <div className="w-full h-44 bg-muted flex items-center justify-center overflow-hidden">
         {item.image_url ? (
-          <img src={item.image_url} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <img
+            src={item.image_url}
+            alt={item.name}
+            onClick={() => onOpen(item.image_url, item.name)}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-zoom-in"
+          />
         ) : (
           <div className="flex flex-col items-center gap-2 text-muted-foreground/40">
             <ImageOff className="w-8 h-8" />
@@ -41,6 +47,7 @@ export default function MenuPage() {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [lightbox, setLightbox] = useState({ open: false, image: null, alt: null });
 
   useSEO({
     title: "Menu | Chalav Yisrael Kosher Dairy Restaurant, Hollywood FL",
@@ -118,13 +125,23 @@ export default function MenuPage() {
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {activeItems.map((item) => (
-                  <MenuItemCard key={item.id} item={item} />
+                  <MenuItemCard
+                    key={item.id}
+                    item={item}
+                    onOpen={(image, alt) => setLightbox({ open: true, image, alt })}
+                  />
                 ))}
               </div>
             </motion.div>
           </AnimatePresence>
         )}
       </div>
+      <ImageLightbox
+        image={lightbox.image}
+        alt={lightbox.alt}
+        open={lightbox.open}
+        onClose={() => setLightbox({ ...lightbox, open: false })}
+      />
     </div>
   );
 }
