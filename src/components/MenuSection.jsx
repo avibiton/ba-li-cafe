@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Loader2 } from "lucide-react";
+import { Loader2, ImageOff } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 
 export default function MenuSection() {
@@ -83,21 +83,37 @@ export default function MenuSection() {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.04 }}
-                    className="bg-background rounded-xl p-5 hover:shadow-md transition-shadow"
+                    className="bg-background rounded-xl overflow-hidden hover:shadow-md transition-shadow group"
                   >
-                    <div className="flex justify-between items-start gap-2">
-                      <h3 className="font-heading text-base font-semibold leading-snug">{item.name}</h3>
-                      {item.price && (
-                        <span className="font-heading text-base font-semibold text-primary whitespace-nowrap">
-                          {item.price}
-                        </span>
+                    <div className="w-full h-36 bg-muted flex items-center justify-center overflow-hidden">
+                      {item.image_url ? (
+                        <img
+                          src={item.image_url}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center gap-1.5 text-muted-foreground/40">
+                          <ImageOff className="w-6 h-6" />
+                          <span className="text-xs font-body">Photo coming soon</span>
+                        </div>
                       )}
                     </div>
-                    {item.description && (
-                      <p className="font-body text-xs text-muted-foreground leading-relaxed mt-1.5">
-                        {item.description}
-                      </p>
-                    )}
+                    <div className="p-4">
+                      <div className="flex justify-between items-start gap-2 mb-1">
+                        <h3 className="font-heading text-base font-semibold leading-snug">{item.name}</h3>
+                        {item.price && (
+                          <span className="font-heading text-base font-semibold text-primary whitespace-nowrap">
+                            {item.price}
+                          </span>
+                        )}
+                      </div>
+                      {item.description && (
+                        <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
