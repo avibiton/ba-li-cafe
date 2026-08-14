@@ -50,11 +50,13 @@ export default function HeroSection() {
             View Menu
           </a>
           <a
-            href="#location"
-            onClick={() => trackEvent(EVENTS.DIRECTIONS_CLICK)}
+            href="https://getsauce.com/order/ba-li-cafe/menu"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent(EVENTS.ONLINE_ORDER_CLICK)}
             className="border border-white/50 text-white px-8 py-3.5 rounded-full font-body font-medium text-sm tracking-wide hover:bg-white/10 transition-colors"
           >
-            Visit Us
+            Order Now
           </a>
         </motion.div>
       </div>
