@@ -38,14 +38,25 @@ export default function Footer() {
                 { label: "Menu", path: "/menu" },
                 { label: "Gallery", path: "/gallery" },
                 { label: "Find Us", path: "/find-us" },
-                { label: "Order Online", path: "/online-ordering" },
+                { label: "Order Online", path: "https://getsauce.com/order/ba-li-cafe/menu", external: true },
               ].map((link) =>
-              <Link
-                key={link.path}
-                to={link.path}
-                className="block font-body text-sm text-background/60 hover:text-background transition-colors">
+              link.external ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-body text-sm text-background/60 hover:text-background transition-colors">
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="block font-body text-sm text-background/60 hover:text-background transition-colors">
                   {link.label}
                 </Link>
+              )
               )}
             </div>
           </div>
