@@ -51,13 +51,15 @@ export default function Navbar() {
               {link.label}
             </Link>
           )}
-          <Link
-            to="/online-ordering"
+          <a
+            href="https://getsauce.com/order/ba-li-cafe/menu"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => trackEvent(EVENTS.ONLINE_ORDER_CLICK)}
             className="inline-flex items-center gap-1.5 border border-primary/40 text-primary px-4 py-2 rounded-full text-sm font-medium hover:bg-primary/5 transition-colors">
             <ShoppingBag className="w-3.5 h-3.5" />
             Order Online
-          </Link>
+          </a>
           <a
             href="tel:+19541234567"
             onClick={() => trackEvent(EVENTS.PHONE_TAP)}
@@ -95,13 +97,15 @@ export default function Navbar() {
                 {link.label}
               </Link>
           )}
-            <Link
-              to="/online-ordering"
+            <a
+              href="https://getsauce.com/order/ba-li-cafe/menu"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => { setOpen(false); trackEvent(EVENTS.ONLINE_ORDER_CLICK); }}
               className="inline-flex items-center gap-2 border border-primary/40 text-primary px-5 py-3 rounded-full text-sm font-medium justify-center">
               <ShoppingBag className="w-4 h-4" />
               Order Online
-            </Link>
+            </a>
             <a
             href="tel:+19541234567"
             onClick={() => trackEvent(EVENTS.PHONE_TAP)}
