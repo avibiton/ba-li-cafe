@@ -4,10 +4,13 @@ import { MapPin, Clock, Car } from "lucide-react";
 import { trackEvent, EVENTS } from "@/lib/analytics";
 
 const hours = [
-  { day: "Monday – Thursday", time: "12:00 PM – 7:00 PM" },
-  { day: "Friday", time: "9:00 AM – 3:00 PM" },
+  { day: "Monday", time: "10:00 AM – 10:00 PM" },
+  { day: "Tuesday", time: "10:00 AM – 10:00 PM" },
+  { day: "Wednesday", time: "10:00 AM – 10:00 PM" },
+  { day: "Thursday", time: "10:00 AM – 10:00 PM" },
+  { day: "Friday", time: "10:00 AM – 3:00 PM" },
   { day: "Saturday", time: "Closed" },
-  { day: "Sunday", time: "12:00 PM – 7:00 PM" },
+  { day: "Sunday", time: "10:00 AM – 10:00 PM" },
 ];
 
 export default function LocationSection() {
