@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Shield, Award, Star, Utensils, Coffee } from "lucide-react";
 
-const PHONE = "+19541234567";
+const PHONE = "+17544443770";
 const DIRECTIONS_URL = "https://maps.google.com/?q=4433+Stirling+Rd+Hollywood+FL+33314";
 
 const trustItems = [

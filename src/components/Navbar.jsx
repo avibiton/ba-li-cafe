@@ -61,7 +61,7 @@ export default function Navbar() {
             Order Online
           </a>
           <a
-            href="tel:+19541234567"
+            href="tel:+17544443770"
             onClick={() => trackEvent(EVENTS.PHONE_TAP)}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors">
             <Phone className="w-4 h-4" />
@@ -107,7 +107,7 @@ export default function Navbar() {
               Order Online
             </a>
             <a
-            href="tel:+19541234567"
+            href="tel:+17544443770"
             onClick={() => trackEvent(EVENTS.PHONE_TAP)}
             className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-3 rounded-full text-sm font-medium">
               <Phone className="w-4 h-4" />

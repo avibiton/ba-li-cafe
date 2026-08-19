@@ -59,7 +59,7 @@ export default function ContactSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 lg:grid-cols-3 gap-4 mt-8">
               <a
-                href="tel:+19541234567"
+                href="tel:+17544443770"
                 onClick={() => trackEvent(EVENTS.PHONE_TAP)}
                 className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card hover:shadow-md transition-shadow text-center"
               >
@@ -81,7 +81,7 @@ export default function ContactSection() {
                 <span className="font-body text-sm font-medium">Get Directions</span>
               </a>
               <a
-                href="https://wa.me/19541234567"
+                href="https://wa.me/17544443770"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center gap-3 p-6 rounded-xl bg-card hover:shadow-md transition-shadow text-center"
