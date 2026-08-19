@@ -4,9 +4,9 @@ import { ArrowDown } from "lucide-react";
 import { trackEvent, EVENTS } from "@/lib/analytics";
 
 const HERO_IMAGES = [
-  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/d2a42cb6c_BALIbyadirnaphotography-64.JPG",
-  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/ddb89a9a7_BALIbyadirnaphotography-61.JPG",
-  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/bb980cc43_BALIbyadirnaphotography-29.JPG",
+  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c2b7a1dba_BALIbyadirnaphotography-45.JPG",
+  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/3ab1f29db_BALIbyadirnaphotography-14.JPG",
+  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c76b9543a_BALIbyadirnaphotography-25.JPG",
 ];
 const SLIDE_INTERVAL = 5000;
 
