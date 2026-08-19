@@ -18,14 +18,11 @@ const images = [
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/ddb89a9a7_BALIbyadirnaphotography-61.JPG", alt: "Seared salmon with asparagus" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/1c4a4fa80_BALIbyadirnaphotography-54.JPG", alt: "Arancini on yellow sauce" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/fb139b858_BALIbyadirnaphotography-51.JPG", alt: "Burrata eggplant dish" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c08e1e116_BALIbyadirnaphotography-40.JPG", alt: "Pasta with cheese grating" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/156899251_BALIbyadirnaphotography-52.JPG", alt: "Couscous salad with feta" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c347c9e06_BALIbyadirnaphotography-56.JPG", alt: "Crispy fish burger with fries" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/1fbe4564b_BALIbyadirnaphotography-8.JPG", alt: "Avocado toast with arugula" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/f9d1b2a53_BALIbyadirnaphotography-11.JPG", alt: "Iced coffee with caramel explosion" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/24f217d88_BALIbyadirnaphotography-42.JPG", alt: "Iced coffee BA-LI cup" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/a0482f3f7_BALIbyadirnaphotography-24.JPG", alt: "Espresso shot" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/e0fcfc530_BALIbyadirnaphotography-21.JPG", alt: "Espresso machine BA-LI" },
 ];
 
 export default function GallerySection() {
