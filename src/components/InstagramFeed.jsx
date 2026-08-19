@@ -6,12 +6,15 @@ import { base44 } from "@/api/base44Client";
 const INSTAGRAM_URL = "https://www.instagram.com/balicafe_miami?igsh=MWpiMHJ3Yzl1aGd6MA==";
 
 const FALLBACK_POSTS = [
-  { image_url: "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/0d5cf99dd_WhatsAppImage2026-04-27at1224352.jpg", permalink: INSTAGRAM_URL },
-  { image_url: "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/5e0a9b7bd_WhatsAppImage2026-04-27at1224341.jpg", permalink: INSTAGRAM_URL },
-  { image_url: "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/1f02d99c5_WhatsAppImage2026-04-27at1224351.jpg", permalink: INSTAGRAM_URL },
-  { image_url: "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/a46cc5382_WhatsAppImage2026-04-27at1224361.jpg", permalink: INSTAGRAM_URL },
-  { image_url: "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/6aec2b4dd_WhatsAppImage2026-04-27at122436.jpg", permalink: INSTAGRAM_URL },
-  { image_url: "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/8e86e968f_WhatsAppImage2026-04-27at112728.jpg", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c022ee9d7_BALIbyadirnaphotography-67.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/9d7e82759_BALIbyadirnaphotography-55.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/ddb89a9a7_BALIbyadirnaphotography-61.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/d2a42cb6c_BALIbyadirnaphotography-64.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/3ab1f29db_BALIbyadirnaphotography-14.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/bb980cc43_BALIbyadirnaphotography-29.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c08e1e116_BALIbyadirnaphotography-40.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c76b9543a_BALIbyadirnaphotography-25.JPG", permalink: INSTAGRAM_URL },
+  { image_url: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/59e605cdb_BALIbyadirnaphotography-4.JPG", permalink: INSTAGRAM_URL },
 ];
 
 export default function InstagramFeed() {
