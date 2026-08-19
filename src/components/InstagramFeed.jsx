@@ -23,8 +23,15 @@ export default function InstagramFeed() {
     const load = async () => {
       try {
         const res = await base44.functions.invoke("getInstagramFeed", {});
-        if (res.data?.posts?.length) {
-          setPosts(res.data.posts);
+        const media = (res.data?.media || []).map((m) => ({
+          id: m.id,
+          caption: m.caption || "",
+          media_type: m.media_type,
+          image_url: m.media_type === "VIDEO" ? m.thumbnail_url : m.media_url,
+          permalink: m.permalink,
+        })).filter((m) => m.image_url);
+        if (media.length) {
+          setPosts(media);
           if (res.data.username) setUsername(`@${res.data.username}`);
         } else {
           setPosts(FALLBACK_POSTS);

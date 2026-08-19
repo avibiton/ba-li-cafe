@@ -5,55 +5,27 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
     const { accessToken } = await base44.asServiceRole.connectors.getConnection("instagram");
 
-    // Get the user ID first
-    const meRes = await fetch(`https://graph.instagram.com/me?fields=id,username&access_token=${accessToken}`);
+    // Get the connected user's ID and username
+    const meRes = await fetch(
+      `https://graph.instagram.com/me?fields=id,username&access_token=${accessToken}`
+    );
     const me = await meRes.json();
-    if (!me.id) return Response.json({ error: 'Failed to get Instagram user ID' }, { status: 500 });
 
-    // Fetch recent media, following pagination to collect all posts/reels
-    const allMedia = [];
-    let nextUrl = `https://graph.instagram.com/${me.id}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=50&access_token=${accessToken}`;
-    let pages = 0;
-    while (nextUrl && pages < 5) {
-      const res = await fetch(nextUrl);
-      const page = await res.json();
-      if (!page.data) break;
-      allMedia.push(...page.data);
-      if (!page.paging?.next || page.data.length === 0) break;
-      nextUrl = page.paging.next;
-      pages += 1;
+    if (!me.id) {
+      return Response.json({ error: "Unable to resolve Instagram account" }, { status: 500 });
     }
-    const media = { data: allMedia };
-    if (!media.data) return Response.json({ error: 'Failed to fetch media' }, { status: 500 });
 
-    // For carousels, fetch the first child image so they aren't dropped
-    const posts = await Promise.all(media.data.map(async (p) => {
-      let image_url = p.media_type === 'VIDEO' ? p.thumbnail_url : p.media_url;
+    // Fetch recent media
+    const mediaRes = await fetch(
+      `https://graph.instagram.com/${me.id}/media?fields=id,caption,media_url,permalink,media_type,thumbnail_url,timestamp&limit=12&access_token=${accessToken}`
+    );
+    const mediaData = await mediaRes.json();
 
-      if (p.media_type === 'CAROUSEL_ALBUM') {
-        try {
-          const childrenRes = await fetch(
-            `https://graph.instagram.com/${p.id}/children?fields=media_type,media_url,thumbnail_url&access_token=${accessToken}`
-          );
-          const children = await childrenRes.json();
-          const first = (children.data || []).find((c) => c.media_type === 'IMAGE' || c.media_type === 'VIDEO');
-          if (first) image_url = first.media_type === 'VIDEO' ? first.thumbnail_url : first.media_url;
-        } catch {
-          // leave image_url undefined; will be filtered below
-        }
-      }
-
-      return {
-        id: p.id,
-        caption: p.caption || '',
-        media_type: p.media_type,
-        image_url,
-        permalink: p.permalink,
-        timestamp: p.timestamp,
-      };
-    }));
-
-    return Response.json({ username: me.username, posts: posts.filter((p) => p.image_url) });
+    return Response.json({
+      username: me.username,
+      profile_url: `https://www.instagram.com/${me.username}/`,
+      media: mediaData.data || [],
+    });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
