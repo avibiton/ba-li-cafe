@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Instagram, Heart, MessageCircle, Loader2, ExternalLink } from "lucide-react";
+import { Instagram, Heart, MessageCircle, Loader2, ExternalLink, Play } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 
 const INSTAGRAM_URL = "https://www.instagram.com/balicafe_miami?igsh=MWpiMHJ3Yzl1aGd6MA==";
@@ -110,6 +110,11 @@ export default function InstagramFeed() {
                     <MessageCircle className="w-4 h-4 fill-white" />
                   </span>
                 </div>
+                {post.media_type === "VIDEO" && (
+                  <div className="absolute top-2 left-2 flex items-center gap-1 bg-black/60 text-white text-[10px] font-body px-1.5 py-0.5 rounded-full">
+                    <Play className="w-3 h-3 fill-white" /> Reel
+                  </div>
+                )}
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <ExternalLink className="w-4 h-4 text-white drop-shadow" />
                 </div>
