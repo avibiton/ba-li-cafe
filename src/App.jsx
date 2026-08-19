@@ -38,23 +38,21 @@ const AuthenticatedApp = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/find-us" element={<FindUs />} />
-          <Route path="/visit-us" element={<Navigate to="/find-us" replace />} />
-          <Route path="/contact" element={<Navigate to="/find-us" replace />} />
-          <Route path="/coming-soon" element={<Navigate to="/" replace />} />
-          <Route path="/online-ordering" element={<OnlineOrdering />} />
-          <Route path="/admin" element={<Navigate to="/admin/menu" replace />} />
-          <Route element={<ProtectedRoute requireAdmin />}>
-            <Route path="/admin/menu" element={<AdminMenu />} />
-          </Route>
-          {/* Add your page Route elements here */}
-          <Route path="*" element={<PageNotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/find-us" element={<FindUs />} />
+        <Route path="/visit-us" element={<Navigate to="/find-us" replace />} />
+        <Route path="/contact" element={<Navigate to="/find-us" replace />} />
+        <Route path="/coming-soon" element={<Navigate to="/" replace />} />
+        <Route path="/online-ordering" element={<OnlineOrdering />} />
+        <Route path="/admin" element={<Navigate to="/admin/menu" replace />} />
+        <Route element={<ProtectedRoute requireAdmin />}>
+          <Route path="/admin/menu" element={<AdminMenu />} />
         </Route>
+        {/* Add your page Route elements here */}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <FloatingOrderButton />
     </>
