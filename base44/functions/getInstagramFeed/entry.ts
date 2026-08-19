@@ -10,11 +10,20 @@ Deno.serve(async (req) => {
     const me = await meRes.json();
     if (!me.id) return Response.json({ error: 'Failed to get Instagram user ID' }, { status: 500 });
 
-    // Fetch recent media
-    const mediaRes = await fetch(
-      `https://graph.instagram.com/${me.id}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=12&access_token=${accessToken}`
-    );
-    const media = await mediaRes.json();
+    // Fetch recent media, following pagination to collect all posts/reels
+    const allMedia = [];
+    let nextUrl = `https://graph.instagram.com/${me.id}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=50&access_token=${accessToken}`;
+    let pages = 0;
+    while (nextUrl && pages < 5) {
+      const res = await fetch(nextUrl);
+      const page = await res.json();
+      if (!page.data) break;
+      allMedia.push(...page.data);
+      if (!page.paging?.next || page.data.length === 0) break;
+      nextUrl = page.paging.next;
+      pages += 1;
+    }
+    const media = { data: allMedia };
     if (!media.data) return Response.json({ error: 'Failed to fetch media' }, { status: 500 });
 
     // For carousels, fetch the first child image so they aren't dropped
