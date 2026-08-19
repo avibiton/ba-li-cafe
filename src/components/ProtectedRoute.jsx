@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
@@ -10,19 +10,14 @@ const DefaultFallback = () => (
 );
 
 export default function ProtectedRoute({ fallback = <DefaultFallback />, requireAdmin = false }) {
-  const { user, isAuthenticated, isLoadingAuth, authChecked, authError, checkUserAuth, navigateToLogin } = useAuth();
+  const { user, isAuthenticated, isLoadingAuth, authChecked, authError, checkUserAuth } = useAuth();
+  const location = useLocation();
 
   useEffect(() => {
     if (!authChecked && !isLoadingAuth) {
       checkUserAuth();
     }
   }, [authChecked, isLoadingAuth, checkUserAuth]);
-
-  useEffect(() => {
-    if (authChecked && !isAuthenticated && (!authError || authError.type !== 'user_not_registered')) {
-      navigateToLogin();
-    }
-  }, [authChecked, isAuthenticated, authError, navigateToLogin]);
 
   if (isLoadingAuth || !authChecked) {
     return fallback;
@@ -33,7 +28,8 @@ export default function ProtectedRoute({ fallback = <DefaultFallback />, require
   }
 
   if (!isAuthenticated) {
-    return fallback;
+    const returnTo = location.pathname + location.search;
+    return <Navigate to={`/login?returnTo=${encodeURIComponent(returnTo)}`} replace />;
   }
 
   if (requireAdmin && user?.role !== 'admin') {
