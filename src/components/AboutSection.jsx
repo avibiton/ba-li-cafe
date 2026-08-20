@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ABOUT_IMG_1 = "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/a46cc5382_WhatsAppImage2026-04-27at1224361.jpg";
+const ABOUT_IMG_1 = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/ecdd8f5bf_BALIbyadirnaphotography-1.JPG";
 const ABOUT_IMG_2 = "https://media.base44.com/images/public/user_685dc1d82e4f2c14c54f4a0d/c55b6f1b0_WhatsAppImage2026-04-27at122435.jpeg";
 
 export default function AboutSection() {
