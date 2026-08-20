@@ -71,7 +71,7 @@ export default function HeroSection() {
             View Menu
           </a>
           <a
-            href="https://getsauce.com/order/ba-li-cafe/menu"
+            href="https://getsauce.com/order/ba-li-cafe/menu?utm_source=wp-site&utm_medium=order-now"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent(EVENTS.ONLINE_ORDER_CLICK)}

@@ -4,7 +4,7 @@ import { ShoppingBag, X } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { trackEvent, EVENTS } from "@/lib/analytics";
 
-const ORDER_URL = "https://getsauce.com/order/ba-li-cafe/menu";
+const ORDER_URL = "https://getsauce.com/order/ba-li-cafe/menu?utm_source=wp-site&utm_medium=order-now";
 
 export default function FloatingOrderButton() {
   const { pathname } = useLocation();

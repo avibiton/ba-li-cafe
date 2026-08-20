@@ -38,7 +38,7 @@ export default function Footer() {
                 { label: "Menu", path: "/menu" },
                 { label: "Gallery", path: "/gallery" },
                 { label: "Find Us", path: "/find-us" },
-                { label: "Order Online", path: "https://getsauce.com/order/ba-li-cafe/menu", external: true },
+                { label: "Order Online", path: "https://getsauce.com/order/ba-li-cafe/menu?utm_source=wp-site&utm_medium=order-now", external: true },
               ].map((link) =>
               link.external ? (
                 <a
