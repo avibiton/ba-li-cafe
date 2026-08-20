@@ -25,6 +25,16 @@ export default function Footer() {
 
 
             </p>
+            <div className="flex items-center gap-3 mt-4">
+              <img
+                src="https://media.base44.com/images/public/69ef94d7191be235637bbdb4/fd92cac83_ORB_LOGO.jpg"
+                alt="ORB Kosher Certification"
+                className="h-16 w-auto object-contain bg-white/95 rounded-md p-1"
+              />
+              <span className="font-body text-xs text-background/60 leading-snug">
+                Certified Kosher<br />Chalav Yisrael
+              </span>
+            </div>
           </div>
 
           {/* Quick Links */}
