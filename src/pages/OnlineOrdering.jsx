@@ -8,9 +8,9 @@ import { trackEvent, EVENTS } from "@/lib/analytics";
 
 export default function OnlineOrdering() {
   useSEO({
-    title: "Order Online | BA-LI Cafe — Hollywood, FL Kosher Dairy Restaurant",
+    title: "Order Online | BALI Cafe — Hollywood, FL Kosher Dairy Restaurant",
     description:
-      "Order online from BA-LI Cafe — kosher dairy restaurant in Hollywood, FL. Call (754) 444-3770 to place your takeout order. Israeli breakfast, salads, pasta, sushi & more.",
+      "Order online from BALI Cafe — kosher dairy restaurant in Hollywood, FL. Call (754) 444-3770 to place your takeout order. Israeli breakfast, salads, pasta, sushi & more.",
   });
   return (
     <div className="min-h-screen font-body flex flex-col">

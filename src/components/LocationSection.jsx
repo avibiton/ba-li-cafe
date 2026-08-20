@@ -47,7 +47,7 @@ export default function LocationSection() {
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Bali Cafe Location"
+              title="BALI Cafe Location"
             />
           </motion.div>
 

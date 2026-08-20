@@ -14,11 +14,11 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <img
                 src={LOGO_URL}
-                alt="Bali Cafe Logo"
+                alt="BALI Cafe Logo"
                 className="h-10 w-10 rounded-full object-cover" />
               
               <span className="font-heading text-lg font-semibold text-background">
-                Bali Cafe
+                BALI Cafe
               </span>
             </div>
             <p className="font-body text-sm text-background/60 leading-relaxed">A kosher Israeli restaurant in Hollywood, Florida. Chalav Yisrael dairy cuisine that tastes just like home.
@@ -108,7 +108,7 @@ export default function Footer() {
 
         <div className="border-t border-background/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="font-body text-xs text-background/40">
-            © {new Date().getFullYear()} Bali Cafe. All rights reserved.
+            © {new Date().getFullYear()} BALI Cafe. All rights reserved.
           </p>
           <p className="font-body text-xs text-background/40">
             4433 Stirling Rd, Hollywood, FL 33314 · Kosher Dairy · Chalav Yisrael

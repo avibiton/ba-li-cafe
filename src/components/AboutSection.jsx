@@ -20,14 +20,14 @@ export default function AboutSection() {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
               <img
                 src={ABOUT_IMG_1}
-                alt="Bali Cafe interior with tropical decor and warm lighting"
+                alt="BALI Cafe interior with tropical decor and warm lighting"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-4 md:-right-8 w-40 md:w-52 aspect-square rounded-2xl overflow-hidden border-4 border-background shadow-xl">
               <img
                 src={ABOUT_IMG_2}
-                alt="Good vibes neon sign inside Bali Cafe"
+                alt="Good vibes neon sign inside BALI Cafe"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -49,7 +49,7 @@ export default function AboutSection() {
             </h2>
             <div className="space-y-5 font-body text-muted-foreground leading-relaxed">
               <p>
-                Bali Cafe is a kosher Israeli restaurant in the heart of Hollywood, Florida. 
+                BALI Cafe is a kosher Israeli restaurant in the heart of Hollywood, Florida. 
                 We bring the flavors of home to your table — shakshuka, sabich, fresh salads, 
                 and everything your savta used to make, served with love.
               </p>
@@ -60,7 +60,7 @@ export default function AboutSection() {
               </p>
               <p>
                 Whether you're craving a classic Israeli breakfast, a hearty pasta, or a 
-                fresh juice — Bali Cafe is your home away from home.
+                fresh juice — BALI Cafe is your home away from home.
               </p>
             </div>
 

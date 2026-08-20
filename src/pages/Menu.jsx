@@ -52,7 +52,7 @@ export default function MenuPage() {
   useSEO({
     title: "Menu | Chalav Yisrael Kosher Dairy Restaurant, Hollywood FL",
     description:
-      "View the BA-LI Cafe menu — kosher dairy Israeli cuisine in Hollywood, FL. Breakfast, salads, paninis, pasta, sushi, juices, smoothies, coffee & desserts. Chalav Yisrael.",
+      "View the BALI Cafe menu — kosher dairy Israeli cuisine in Hollywood, FL. Breakfast, salads, paninis, pasta, sushi, juices, smoothies, coffee & desserts. Chalav Yisrael.",
   });
 
   useEffect(() => {
@@ -78,10 +78,10 @@ export default function MenuPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="relative py-24 px-5 md:px-8 overflow-hidden">
-        <img src={BG_URL} alt="BA-LI Cafe" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={BG_URL} alt="BALI Cafe" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
         <div className="relative max-w-7xl mx-auto">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">BA-LI Menu</h1>
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3">BALI Menu</h1>
           <p className="font-body text-white/60 text-sm">Dairy Restaurant · Chalav Yisrael · Hollywood, Florida</p>
         </div>
       </div>

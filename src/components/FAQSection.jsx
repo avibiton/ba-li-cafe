@@ -5,15 +5,15 @@ import { useSEO } from "@/lib/seo";
 
 const faqs = [
   {
-    q: "Is BA-LI Cafe kosher certified?",
-    a: "Yes! BA-LI Cafe is a strictly kosher dairy restaurant. All of our dairy products are Chalav Yisrael certified, and our kitchen operates under full rabbinical supervision. We do not serve any meat products.",
+    q: "Is BALI Cafe kosher certified?",
+    a: "Yes! BALI Cafe is a strictly kosher dairy restaurant. All of our dairy products are Chalav Yisrael certified, and our kitchen operates under full rabbinical supervision. We do not serve any meat products.",
   },
   {
     q: "What does Chalav Yisrael mean?",
-    a: "Chalav Yisrael is the highest standard of kosher dairy certification. It means that all dairy products — milk, cheese, butter, and more — are produced under continuous, on-site rabbinical supervision from milking through packaging. Every dairy item at BA-LI Cafe meets this standard.",
+    a: "Chalav Yisrael is the highest standard of kosher dairy certification. It means that all dairy products — milk, cheese, butter, and more — are produced under continuous, on-site rabbinical supervision from milking through packaging. Every dairy item at BALI Cafe meets this standard.",
   },
   {
-    q: "Where is BA-LI Cafe located?",
+    q: "Where is BALI Cafe located?",
     a: "We're located at 4433 Stirling Rd, Hollywood, FL 33314 — in the heart of South Florida's kosher community. Free parking is available on-site for all guests.",
   },
   {
@@ -57,7 +57,7 @@ export default function FAQSection() {
             Frequently Asked <span className="italic">Questions</span>
           </h2>
           <p className="font-body text-sm text-muted-foreground max-w-xl mx-auto">
-            Everything you need to know about BA-LI Cafe — Hollywood's kosher dairy restaurant.
+            Everything you need to know about BALI Cafe — Hollywood's kosher dairy restaurant.
           </p>
         </motion.div>
 

@@ -6,9 +6,9 @@ import { useSEO } from "@/lib/seo";
 
 export default function Gallery() {
   useSEO({
-    title: "Gallery | BA-LI Cafe — Hollywood, FL Kosher Dairy Restaurant",
+    title: "Gallery | BALI Cafe — Hollywood, FL Kosher Dairy Restaurant",
     description:
-      "Explore the BA-LI Cafe gallery — photos of our kosher dairy dishes, Israeli breakfast, sushi, fresh juices, and our beautiful restaurant in Hollywood, FL.",
+      "Explore the BALI Cafe gallery — photos of our kosher dairy dishes, Israeli breakfast, sushi, fresh juices, and our beautiful restaurant in Hollywood, FL.",
   });
   return (
     <div className="min-h-screen font-body">

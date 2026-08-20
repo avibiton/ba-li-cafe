@@ -29,7 +29,7 @@ export default function TrustSection() {
             Kosher You Can <span className="italic text-primary">Trust</span>
           </h2>
           <p className="font-body text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            BA-LI Cafe is a Chalav Yisrael kosher dairy restaurant in Hollywood, Florida.
+            BALI Cafe is a Chalav Yisrael kosher dairy restaurant in Hollywood, Florida.
             Every ingredient meets the highest standards of kosher certification.
           </p>
         </motion.div>

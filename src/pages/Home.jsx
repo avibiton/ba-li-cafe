@@ -15,9 +15,9 @@ import { useSEO } from "@/lib/seo";
 
 export default function Home() {
   useSEO({
-    title: "BA-LI Cafe — Kosher Dairy Restaurant & Coffee Shop in Hollywood, FL",
+    title: "BALI Cafe — Kosher Dairy Restaurant & Coffee Shop in Hollywood, FL",
     description:
-      "BA-LI Cafe is a Chalav Yisrael kosher dairy restaurant & coffee shop in Hollywood, FL. Israeli breakfast, shakshuka, fresh salads, pasta, sushi, juices & artisanal coffee.",
+      "BALI Cafe is a Chalav Yisrael kosher dairy restaurant & coffee shop in Hollywood, FL. Israeli breakfast, shakshuka, fresh salads, pasta, sushi, juices & artisanal coffee.",
   });
   return (
     <div className="min-h-screen font-body">

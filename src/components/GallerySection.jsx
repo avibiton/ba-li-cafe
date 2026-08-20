@@ -3,14 +3,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
 const images = [
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/ecdd8f5bf_BALIbyadirnaphotography-1.JPG", alt: "BA-LI cafe storefront" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/cd783ccd1_BALIbyadirnaphotography-36.JPG", alt: "BA-LI restaurant interior table" },
+  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/ecdd8f5bf_BALIbyadirnaphotography-1.JPG", alt: "BALI cafe storefront" },
+  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/cd783ccd1_BALIbyadirnaphotography-36.JPG", alt: "BALI restaurant interior table" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/1df339995_BALIbyadirnaphotography-6.JPG", alt: "Restaurant interior with flowers" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/61a161cb6_BALIbyadirnaphotography-20.JPG", alt: "BA-LI wall mural interior" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/0ebfabe6a_BALIbyadirnaphotography-32.JPG", alt: "BA-LI full breakfast spread" },
+  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/61a161cb6_BALIbyadirnaphotography-20.JPG", alt: "BALI wall mural interior" },
+  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/0ebfabe6a_BALIbyadirnaphotography-32.JPG", alt: "BALI full breakfast spread" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/bb980cc43_BALIbyadirnaphotography-29.JPG", alt: "Israeli breakfast with menu" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/530d06792_BALIbyadirnaphotography-47.JPG", alt: "Full table spread" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c022ee9d7_BALIbyadirnaphotography-67.JPG", alt: "Dessert spread at BA-LI Cafe" },
+  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c022ee9d7_BALIbyadirnaphotography-67.JPG", alt: "Dessert spread at BALI Cafe" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/7a2d8ab47_BALIbyadirnaphotography-66.JPG", alt: "Dessert tower" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/d2a42cb6c_BALIbyadirnaphotography-64.JPG", alt: "Kosher pizza from brick oven" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/0bb2bb8d9_BALIbyadirnaphotography-15.JPG", alt: "Shakshuka-style pizza" },
@@ -22,7 +22,7 @@ const images = [
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c347c9e06_BALIbyadirnaphotography-56.JPG", alt: "Crispy fish burger with fries" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/1fbe4564b_BALIbyadirnaphotography-8.JPG", alt: "Avocado toast with arugula" },
   { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/f9d1b2a53_BALIbyadirnaphotography-11.JPG", alt: "Iced coffee with caramel explosion" },
-  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/24f217d88_BALIbyadirnaphotography-42.JPG", alt: "Iced coffee BA-LI cup" },
+  { src: "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/24f217d88_BALIbyadirnaphotography-42.JPG", alt: "Iced coffee BALI cup" },
 ];
 
 export default function GallerySection() {

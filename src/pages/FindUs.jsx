@@ -7,9 +7,9 @@ import { useSEO } from "@/lib/seo";
 
 export default function FindUs() {
   useSEO({
-    title: "Find Us | BA-LI Cafe — Hollywood, FL Kosher Dairy Restaurant",
+    title: "Find Us | BALI Cafe — Hollywood, FL Kosher Dairy Restaurant",
     description:
-      "Visit BA-LI Cafe at 4433 Stirling Rd, Hollywood, FL 33314. Call (954) 123-4567. Open Sun–Thu 8AM–11PM, Fri 8AM–3PM. Free parking on-site. Chalav Yisrael kosher dairy restaurant.",
+      "Visit BALI Cafe at 4433 Stirling Rd, Hollywood, FL 33314. Call (954) 123-4567. Open Sun–Thu 8AM–11PM, Fri 8AM–3PM. Free parking on-site. Chalav Yisrael kosher dairy restaurant.",
   });
 
   return (

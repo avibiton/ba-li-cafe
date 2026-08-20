@@ -37,7 +37,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-3">
           <img
             src={LOGO_URL}
-            alt="Bali Cafe Logo"
+            alt="BALI Cafe Logo"
             className="h-12 w-12 rounded-full object-cover" />
         </Link>
 
@@ -47,7 +47,7 @@ export default function Navbar() {
           <Link
             key={link.href}
             to={link.href}
-            className="font-body text-sm tracking-wide hover:text-primary transition-colors text-[hsl(var(--accent))]">
+            className={`font-body text-sm tracking-wide hover:text-primary transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
               {link.label}
             </Link>
           )}
@@ -71,8 +71,8 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setOpen(!open)}>
+        className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`}
+        onClick={() => setOpen(!open)}>
           
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -85,7 +85,7 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
-        className="md:hidden bg-background/98 backdrop-blur-md border-t border-border">
+        className="md:hidden bg-background border-t border-border">
 
           <div className="px-6 py-6 flex flex-col gap-5">
             {navLinks.map((link) =>
@@ -93,7 +93,7 @@ export default function Navbar() {
             key={link.href}
             to={link.href}
             onClick={() => setOpen(false)}
-            className="font-body text-base text-foreground/80 hover:text-primary transition-colors">
+            className="font-body text-base text-foreground hover:text-primary transition-colors">
                 {link.label}
               </Link>
           )}
