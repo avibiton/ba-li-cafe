@@ -33,7 +33,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-foreground">
       {/* Background slider */}
       <div className="absolute inset-0">
         <AnimatePresence mode="sync">
@@ -66,9 +66,24 @@ export default function HeroSection() {
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.05] mb-6">
             BALI Cafe
           </h1>
-          <p className="font-heading text-xl sm:text-2xl text-white/85 italic mb-10">
+          <p className="font-heading text-xl sm:text-2xl text-white/85 italic mb-6">
             Israeli food that tastes just like home
           </p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.5 }}
+            className="flex items-center justify-center gap-2 mb-10"
+          >
+            <img
+              src="https://media.base44.com/images/public/69ef94d7191be235637bbdb4/fd92cac83_ORB_LOGO.jpg"
+              alt="ORB Kosher Certification"
+              className="h-9 w-auto rounded bg-white/95 p-0.5 object-contain"
+            />
+            <span className="font-body text-xs tracking-wide text-white/80">
+              Certified Kosher · Chalav Yisrael
+            </span>
+          </motion.div>
         </motion.div>
 
         <motion.div

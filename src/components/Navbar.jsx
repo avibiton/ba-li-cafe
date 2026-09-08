@@ -17,6 +17,9 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const solid = scrolled || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -27,7 +30,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ?
+      solid ?
       "bg-background/95 backdrop-blur-md shadow-sm" :
       "bg-transparent"}`
       }>
@@ -47,7 +50,7 @@ export default function Navbar() {
           <Link
             key={link.href}
             to={link.href}
-            className={`font-body text-sm tracking-wide hover:text-primary transition-colors ${scrolled ? "text-foreground" : "text-white"}`}>
+            className={`font-body text-sm tracking-wide hover:text-primary transition-colors ${solid ? "text-foreground" : "text-white"}`}>
               {link.label}
             </Link>
           )}
@@ -71,7 +74,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-        className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`}
+        className={`md:hidden p-2 ${solid ? "text-foreground" : "text-white"}`}
         onClick={() => setOpen(!open)}>
           
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
