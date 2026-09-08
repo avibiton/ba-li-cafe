@@ -14,11 +14,15 @@ export default function HeroSection() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    // Preload all hero images so later slides are cached before they appear
-    HERO_IMAGES.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
+    // Load the first image with highest priority, then preload the rest after
+    const first = new Image();
+    first.onload = () => {
+      HERO_IMAGES.slice(1).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+    first.src = HERO_IMAGES[0];
   }, []);
 
   useEffect(() => {
@@ -42,7 +46,8 @@ export default function HeroSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            fetchPriority={index === 0 ? "high" : "low"}
+            fetchPriority={index === 0 ? "high" : "auto"}
+            loading={index === 0 ? "eager" : "lazy"}
           />
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />

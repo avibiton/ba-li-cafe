@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "What are your hours?",
-    a: "We're open Sunday through Thursday from 8:00 AM to 11:00 PM, Friday from 8:00 AM to 3:00 PM, and closed on Saturday (Shabbat).",
+    a: "We're open Sunday through Thursday from 10:00 AM to 10:00 PM, Friday from 10:00 AM to 3:00 PM, and closed on Saturday (Shabbat).",
   },
   {
     q: "Do you offer takeout and delivery?",
