@@ -32,7 +32,7 @@ export default function Footer() {
                 className="h-16 w-auto object-contain bg-white/95 rounded-md p-1"
               />
               <span className="font-body text-xs text-background/60 leading-snug">
-                Certified Kosher<br />Chalav Yisrael
+                Certified Kosher<br />Chalav Yisrael<br />Kemach Yoshon
               </span>
             </div>
           </div>

@@ -81,7 +81,7 @@ export default function HeroSection() {
               className="h-9 w-auto rounded bg-white/95 p-0.5 object-contain"
             />
             <span className="font-body text-xs tracking-wide text-white/80">
-              Certified Kosher · Chalav Yisrael
+              Certified Kosher · Chalav Yisrael · Kemach Yoshon
             </span>
           </motion.div>
         </motion.div>
