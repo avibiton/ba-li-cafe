@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { ArrowLeft, Loader2, LogOut } from "lucide-react";
+import { ArrowLeft, Loader2, LogOut, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/lib/AuthContext";
 import CategorySidebar from "@/components/admin/CategorySidebar";
@@ -10,6 +10,7 @@ export default function AdminMenu() {
   const [categories, setCategories] = useState([]);
   const [items, setItems] = useState([]);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [globalSearch, setGlobalSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const { logout } = useAuth();
 
@@ -33,6 +34,16 @@ export default function AdminMenu() {
 
   const activeCat = categories.find((c) => c.category_id === activeCategory);
   const activeItems = items.filter((i) => i.category === activeCategory);
+  const q = globalSearch.trim().toLowerCase();
+  const isSearching = q.length > 0;
+  const searchResults = isSearching
+    ? items.filter(
+        (i) =>
+          (i.name || "").toLowerCase().includes(q) ||
+          (i.description || "").toLowerCase().includes(q) ||
+          (categories.find((c) => c.category_id === i.category)?.label || "").toLowerCase().includes(q)
+      )
+    : [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,32 +74,54 @@ export default function AdminMenu() {
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
           </div>
         ) : (
-          <div className="flex flex-col md:flex-row gap-8">
-            <div className="md:w-56 flex-shrink-0">
-              <CategorySidebar
-                categories={categories}
-                items={items}
-                activeCategory={activeCategory}
-                onSelect={setActiveCategory}
-                onSaved={load}
+          <>
+            <div className="relative mb-6">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+              <input
+                type="text"
+                value={globalSearch}
+                onChange={(e) => setGlobalSearch(e.target.value)}
+                placeholder="Search all items across categories..."
+                className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring/30"
               />
             </div>
-
-            <div className="flex-1 min-w-0">
-              {activeCat ? (
-                <ItemTable
-                  items={activeItems}
-                  categoryId={activeCat.category_id}
-                  categoryLabel={activeCat.label}
-                  onSaved={() => load(activeCategory)}
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="md:w-56 flex-shrink-0">
+                <CategorySidebar
+                  categories={categories}
+                  items={items}
+                  activeCategory={activeCategory}
+                  onSelect={setActiveCategory}
+                  onSaved={load}
                 />
-              ) : (
-                <div className="text-center py-12 text-muted-foreground font-body text-sm">
-                  No categories yet. Add one to get started.
-                </div>
-              )}
+              </div>
+
+              <div className="flex-1 min-w-0">
+                {isSearching ? (
+                  <ItemTable
+                    items={searchResults}
+                    globalMode
+                    categories={categories}
+                    categoryId={activeCat?.category_id}
+                    categoryLabel="Search Results"
+                    onSaved={() => load(activeCategory)}
+                  />
+                ) : activeCat ? (
+                  <ItemTable
+                    items={activeItems}
+                    categories={categories}
+                    categoryId={activeCat.category_id}
+                    categoryLabel={activeCat.label}
+                    onSaved={() => load(activeCategory)}
+                  />
+                ) : (
+                  <div className="text-center py-12 text-muted-foreground font-body text-sm">
+                    No categories yet. Add one to get started.
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>

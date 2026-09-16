@@ -3,11 +3,12 @@ import { Plus, Pencil, Trash2, ImageOff, ChevronUp, ChevronDown, Search } from "
 import { base44 } from "@/api/base44Client";
 import ItemEditDialog from "./ItemEditDialog";
 
-export default function ItemTable({ items, categoryId, categoryLabel, onSaved }) {
+export default function ItemTable({ items, categoryId, categoryLabel, onSaved, categories, globalMode }) {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
   const [search, setSearch] = useState("");
 
+  const catLabel = (id) => categories?.find((c) => c.category_id === id)?.label || id;
   const sorted = [...items].sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
   const filtered = search.trim()
     ? sorted.filter((i) => i.name.toLowerCase().includes(search.trim().toLowerCase()))
@@ -46,27 +47,31 @@ export default function ItemTable({ items, categoryId, categoryLabel, onSaved })
         <div>
           <h2 className="font-heading text-xl font-semibold">{categoryLabel}</h2>
           <p className="font-body text-xs text-muted-foreground mt-0.5">
-            {sorted.length} items · {photoCount} with photos
+            {sorted.length} items{globalMode ? "" : ` · ${photoCount} with photos`}
           </p>
         </div>
-        <button
-          onClick={handleAdd}
-          className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
-        >
-          <Plus className="w-4 h-4" /> Add Item
-        </button>
+        {!globalMode && (
+          <button
+            onClick={handleAdd}
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            <Plus className="w-4 h-4" /> Add Item
+          </button>
+        )}
       </div>
 
-      <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search items in this category..."
-          className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring/30"
-        />
-      </div>
+      {!globalMode && (
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search items in this category..."
+            className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring/30"
+          />
+        </div>
+      )}
 
       <div className="space-y-3">
         {filtered.map((item, idx) => (
@@ -83,6 +88,9 @@ export default function ItemTable({ items, categoryId, categoryLabel, onSaved })
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-heading font-semibold text-sm">{item.name}</span>
                 {item.price && <span className="text-primary font-heading font-semibold text-sm">{item.price}</span>}
+                {globalMode && (
+                  <span className="bg-secondary text-secondary-foreground text-xs px-2 py-0.5 rounded-full">{catLabel(item.category)}</span>
+                )}
                 {!item.is_available && (
                   <span className="bg-destructive/10 text-destructive text-xs px-2 py-0.5 rounded-full">Unavailable</span>
                 )}
@@ -96,14 +104,16 @@ export default function ItemTable({ items, categoryId, categoryLabel, onSaved })
             </div>
 
             <div className="flex items-center gap-1 flex-shrink-0">
-              <div className="flex flex-col">
-                <button onClick={() => handleReorder(item, "up")} disabled={idx === 0} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
-                  <ChevronUp className="w-4 h-4 text-muted-foreground" />
-                </button>
-                <button onClick={() => handleReorder(item, "down")} disabled={idx === filtered.length - 1} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
-                  <ChevronDown className="w-4 h-4 text-muted-foreground" />
-                </button>
-              </div>
+              {!globalMode && (
+                <div className="flex flex-col">
+                  <button onClick={() => handleReorder(item, "up")} disabled={idx === 0} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
+                    <ChevronUp className="w-4 h-4 text-muted-foreground" />
+                  </button>
+                  <button onClick={() => handleReorder(item, "down")} disabled={idx === filtered.length - 1} className="p-1 hover:bg-secondary rounded disabled:opacity-30">
+                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                  </button>
+                </div>
+              )}
               <button onClick={() => handleEdit(item)} className="p-2 rounded-lg hover:bg-secondary transition-colors">
                 <Pencil className="w-4 h-4 text-muted-foreground" />
               </button>
@@ -118,7 +128,7 @@ export default function ItemTable({ items, categoryId, categoryLabel, onSaved })
       <ItemEditDialog
         open={dialogOpen}
         item={editingItem}
-        categoryId={categoryId}
+        categoryId={editingItem?.category || categoryId}
         itemCount={sorted.length}
         onClose={() => setDialogOpen(false)}
         onSaved={onSaved}
