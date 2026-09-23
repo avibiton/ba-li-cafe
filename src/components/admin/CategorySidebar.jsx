@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Plus, Pencil, Trash2, Check, X } from "lucide-react";
+import { Plus, Pencil, Trash2, Check, X, ChevronUp, ChevronDown } from "lucide-react";
 import { base44 } from "@/api/base44Client";
 
 function slugify(label) {
@@ -52,6 +52,20 @@ export default function CategorySidebar({ categories, items, activeCategory, onS
 
   const sorted = [...categories].sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0));
 
+  const handleReorder = async (cat, direction) => {
+    const idx = sorted.findIndex((c) => c.id === cat.id);
+    const swapIdx = direction === "up" ? idx - 1 : idx + 1;
+    if (swapIdx < 0 || swapIdx >= sorted.length) return;
+    const reordered = [...sorted];
+    [reordered[idx], reordered[swapIdx]] = [reordered[swapIdx], reordered[idx]];
+    setSaving(true);
+    await base44.entities.MenuCategory.bulkUpdate(
+      reordered.map((c, i) => ({ id: c.id, sort_order: i + 1 }))
+    );
+    setSaving(false);
+    onSaved();
+  };
+
   return (
     <div className="space-y-1">
       <button
@@ -80,7 +94,7 @@ export default function CategorySidebar({ categories, items, activeCategory, onS
         </div>
       )}
 
-      {sorted.map((cat) => {
+      {sorted.map((cat, idx) => {
         const count = items.filter((i) => i.category === cat.category_id).length;
         const isActive = activeCategory === cat.category_id;
         return (
@@ -115,6 +129,22 @@ export default function CategorySidebar({ categories, items, activeCategory, onS
                     {count}
                   </span>
                 </button>
+                <div className="flex flex-col opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button
+                    onClick={() => handleReorder(cat, "up")}
+                    disabled={idx === 0 || saving}
+                    className={`p-0.5 rounded disabled:opacity-20 ${isActive ? "text-primary-foreground hover:bg-primary-foreground/20" : "text-muted-foreground hover:text-foreground"}`}
+                  >
+                    <ChevronUp className="w-3 h-3" />
+                  </button>
+                  <button
+                    onClick={() => handleReorder(cat, "down")}
+                    disabled={idx === sorted.length - 1 || saving}
+                    className={`p-0.5 rounded disabled:opacity-20 ${isActive ? "text-primary-foreground hover:bg-primary-foreground/20" : "text-muted-foreground hover:text-foreground"}`}
+                  >
+                    <ChevronDown className="w-3 h-3" />
+                  </button>
+                </div>
                 <button
                   onClick={() => { setEditingId(cat.id); setEditLabel(cat.label); }}
                   className={`p-1.5 opacity-0 group-hover:opacity-100 transition-opacity ${isActive ? "text-primary-foreground hover:bg-primary-foreground/20" : "text-muted-foreground hover:text-foreground"}`}
