@@ -3,11 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { trackEvent, EVENTS } from "@/lib/analytics";
 
-const HERO_IMAGES = [
-  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c2b7a1dba_BALIbyadirnaphotography-45.JPG",
-  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/3ab1f29db_BALIbyadirnaphotography-14.JPG",
-  "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/c76b9543a_BALIbyadirnaphotography-25.JPG",
+const IMG_BASE = "https://media.base44.com/images/public/69ef94d7191be235637bbdb4/";
+const HERO_FILES = [
+  "c2b7a1dba_BALIbyadirnaphotography-45.JPG",
+  "3ab1f29db_BALIbyadirnaphotography-14.JPG",
+  "c76b9543a_BALIbyadirnaphotography-25.JPG",
 ];
+// The media host resizes on the fly — original files are ~24MB each, these variants are ~200-650KB.
+const heroSrc = (file, w, h, q) => `${IMG_BASE}${file}/v1/fill/w_${w},h_${h},al_c,q_${q}/file.jpg`;
+const heroSrcSet = (file) =>
+  `${heroSrc(file, 1280, 800, 65)} 1280w, ${heroSrc(file, 1600, 1000, 70)} 1600w, ${heroSrc(file, 1920, 1200, 75)} 1920w`;
 const SLIDE_INTERVAL = 5000;
 
 export default function HeroSection() {
@@ -17,17 +22,17 @@ export default function HeroSection() {
     // Load the first image with highest priority, then preload the rest after
     const first = new Image();
     first.onload = () => {
-      HERO_IMAGES.slice(1).forEach((src) => {
+      HERO_FILES.slice(1).forEach((file) => {
         const img = new Image();
-        img.src = src;
+        img.src = heroSrc(file, 1600, 1000, 70);
       });
     };
-    first.src = HERO_IMAGES[0];
+    first.src = heroSrc(HERO_FILES[0], 1600, 1000, 70);
   }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((i) => (i + 1) % HERO_IMAGES.length);
+      setIndex((i) => (i + 1) % HERO_FILES.length);
     }, SLIDE_INTERVAL);
     return () => clearInterval(timer);
   }, []);
@@ -39,7 +44,9 @@ export default function HeroSection() {
         <AnimatePresence mode="sync">
           <motion.img
             key={index}
-            src={HERO_IMAGES[index]}
+            src={heroSrc(HERO_FILES[index], 1920, 1200, 75)}
+            srcSet={heroSrcSet(HERO_FILES[index])}
+            sizes="100vw"
             alt="BALI Cafe signature dishes"
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ opacity: 0 }}
